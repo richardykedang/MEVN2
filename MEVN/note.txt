@@ -16,3 +16,4 @@ run npm install -g eslint for issued on new line or put this "build": "npm run l
 //install middleware for logger and cors
 -npm install cors morgan --save-dev
 -npm install body-parser --save
+-npm install mongoose

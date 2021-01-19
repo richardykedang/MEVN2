@@ -3,8 +3,10 @@ import express from 'express';
 const app = express();
 import { registerRoutes } from './routes';
 import { setEnvironment } from './config/env';
+import { connectToDB } from './config/db';
 
 setEnvironment(app);
+connectToDB();
 registerRoutes(app);
 const port = 3000
 

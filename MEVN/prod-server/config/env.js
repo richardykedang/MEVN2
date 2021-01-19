@@ -37,11 +37,13 @@ function setDevEnv(app) {
     app.use(_bodyParser2.default.json()); // Allows parsing JSON from the client
     app.use((0, _morgan2.default)('dev')); // Log HTTP Requests to the node console (for debugging purposes)
     app.use((0, _cors2.default)()); // Enable Cross Origin Requests, since Vue.JS is on a different origin
+    process.env.DB_URL = 'mongodb://Richardy:zySmzzUr48GuedDo@cluster0-shard-00-00.cal8v.mongodb.net:27017,cluster0-shard-00-01.cal8v.mongodb.net:27017,cluster0-shard-00-02.cal8v.mongodb.net:27017/Webhozz?ssl=true&replicaSet=atlas-i0chxy-shard-0&authSource=admin&retryWrites=true&w=majority';
 }
 
 function setProdEnv(app) {
     console.log("setting prod enviroment");
     process.env.NODE_ENV = 'production';
+    process.env.DB_URL = 'mongodb://Richardy:zySmzzUr48GuedDo@cluster0-shard-00-00.cal8v.mongodb.net:27017,cluster0-shard-00-01.cal8v.mongodb.net:27017,cluster0-shard-00-02.cal8v.mongodb.net:27017/Webhozz?ssl=true&replicaSet=atlas-i0chxy-shard-0&authSource=admin&retryWrites=true&w=majority';
     app.use(_bodyParser2.default.json());
     app.use(_express2.default.static(__dirname + '/../../dist'));
 }
