@@ -18,3 +18,4 @@ run npm install -g eslint for issued on new line or put this "build": "npm run l
 -npm install body-parser --save
 -npm install mongoose
 -npm run lint -s for formating lint
+-npm install moment --save
