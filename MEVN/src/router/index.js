@@ -5,8 +5,9 @@ import Register from '../views/authentication/Register.vue'
 import TaskAll from '../views/task/TaskAll.vue'
 import TaskCreate from '../views/task/TaskCreate.vue'
 import TaskEdit from '../views/task/TaskEdit.vue'
+import * as auth from '../services/AuthService'
 
-const Islogin = false
+// const Islogin = false
 
 const routes = [
   {
@@ -19,7 +20,7 @@ const routes = [
     name: 'task-create',
     component: TaskCreate,
     beforeEnter: (toolbar, from, next) => {
-      if (Islogin) {
+      if (auth.IsLogin) {
         next()
       } else {
         next('/login')
@@ -31,7 +32,7 @@ const routes = [
     name: 'task-edit',
     component: TaskEdit,
     beforeEnter: (toolbar, from, next) => {
-      if (Islogin) {
+      if (auth.Islogin) {
         next()
       } else {
         next('/login')
@@ -43,7 +44,7 @@ const routes = [
     name: 'task-all',
     component: TaskAll,
     beforeEnter: (toolbar, from, next) => {
-      if (Islogin) {
+      if (auth.Islogin) {
         next()
       } else {
         next('/login')
@@ -55,7 +56,7 @@ const routes = [
     name: 'register',
     component: Register,
     beforeEnter: (toolbar, from, next) => {
-      if (!Islogin) {
+      if (!auth.Islogin) {
         next()
       } else {
         next('/')
@@ -67,7 +68,7 @@ const routes = [
     name: 'login',
     component: Login,
     beforeEnter: (toolbar, from, next) => {
-      if (!Islogin) {
+      if (!auth.Islogin) {
         next()
       } else {
         next('/')

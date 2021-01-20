@@ -18,9 +18,15 @@ export function Login (user) {
       }
     })
 }
+
+export function logout () {
+  localStorage.clear()
+  store.dispatch('authenticate')
+}
+
 // 2
 function setToken (token) {
-  localStorage.setItem('token', JSON.stringify(token))
+  localStorage.setItem('token', token)
   store.dispatch('authenticate')
 }
 
