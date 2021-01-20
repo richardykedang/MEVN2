@@ -10,10 +10,11 @@ export function Login (user) {
   return http().post('/auth', user)
     .then(res => {
       if (res) {
-        const fakeToken = {
-          token: 'my-token'
-        }
-        setToken(fakeToken)
+        console.log(res)
+        // const fakeToken = {
+        //   token: 'my-token'
+        // }
+        setToken(res.data.token)
       }
     })
 }
