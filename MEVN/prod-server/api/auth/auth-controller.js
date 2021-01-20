@@ -11,6 +11,8 @@ var _userModel = require('../../model/user-model');
 
 var _userModel2 = _interopRequireDefault(_userModel);
 
+var _authService = require('../../services/auth-service');
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function index(req, res) {
@@ -26,15 +28,15 @@ function index(req, res) {
         }
 
         if (!user) {
-            return res.status(401).json();
+            return res.status(401).json({ message: error });
         }
 
         var passwordsMatch = _userModel2.default.passwordMatches(req.body.password, user.password);;
         if (!passwordsMatch) {
             return res.status(401).json();
         }
-
-        return res.status(200).json();
+        var token = (0, _authService.generateJWT)(user);
+        return res.status(200).json({ token: token });
     });
 }
 

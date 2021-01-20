@@ -1,5 +1,6 @@
 import { StringUtil } from '../../utilities/string-utils';
 import User from '../../model/user-model';
+import { generateJWT } from '../../services/auth-service';
 
 export function index(req, res) {
     // First verify that the user provided a username and a password
@@ -14,15 +15,15 @@ export function index(req, res) {
         }
 
         if (!user) {
-            return res.status(401).json();
+            return res.status(401).json({message: error});
         }
 
         const passwordsMatch = User.passwordMatches(req.body.password, user.password);;
         if (!passwordsMatch) {
             return res.status(401).json();
         }
-
-        return res.status(200).json();
+        const token = generateJWT(user)
+        return res.status(200).json({token: token});
     });
 }
 

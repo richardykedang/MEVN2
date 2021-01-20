@@ -21,3 +21,4 @@ run npm install -g eslint for issued on new line or put this "build": "npm run l
 -npm install moment --save
 -npm install bcrypt-nodejs --save
 -npm install axios --save
+-npm install jsonwebtoken --save

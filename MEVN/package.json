@@ -16,6 +16,7 @@
     "bootstrap": "^4.5.3",
     "core-js": "^3.6.5",
     "jquery": "^3.5.1",
+    "jsonwebtoken": "^8.5.1",
     "moment": "^2.29.1",
     "mongoose": "^5.11.12",
     "popper.js": "^1.16.1",
